@@ -1,1 +1,1 @@
-My Python solutions to Rosalind problems
+My Python solutions to <a href="rosalind.info">Rosalind</a> problems
