@@ -3,6 +3,8 @@
 # Given: A DNA string s of length at most 1 kbp in FASTA format.
 # Return: Every distinct candidate protein string that can be translated from ORFs of s. Strings can be returned in any order.
 
+import sys
+
 dna_codons = {
 'TTT': 'F',      'CTT': 'L',      'ATT': 'I',      'GTT': 'V',
 'TTC': 'F',      'CTC': 'L',      'ATC': 'I',      'GTC': 'V',
@@ -78,9 +80,6 @@ def all_open_reading_frames(s):
                 in all_indices(r, start_codon)]) ^ set([''])
 
 
-if __name__ == '__main__':
-    import sys
-
-    strand = open('input').read()
-    strand = strand.strip('\n')
-    print '\n'.join(all_open_reading_frames(strand))
+strand = open('input').read()
+strand = strand.strip('\n')
+print '\n'.join(all_open_reading_frames(strand))
