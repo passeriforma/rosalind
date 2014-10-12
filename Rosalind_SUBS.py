@@ -10,9 +10,10 @@ dna = f.read().split('\n')
 
 DNA = dna[0]
 
-V = [m.start() for m in re.finditer('(?=' + dna[1] ')', DNA)]
+V = [m.start() for m in re.finditer('(?=' + dna[1] + ')', DNA)]
 returnV = []
 for value in V:
     returnV.append(value + 1)
 
-print returnV
+for i in range(0, len(V)):
+    print V[i]+1,

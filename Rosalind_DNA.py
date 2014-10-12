@@ -14,7 +14,7 @@ def countNucleotides(string):
             g += 1
         if letter == 'T':
             t += 1
-    print(str(a) + ' ' + str(c) + ' ' + str(g) + ' ' + str(t))
+    print('A: ' + str(a) + ' C: ' + str(c) + ' G: ' + str(g) + ' T: ' + str(t))
 
 f = open("input")
 lines =  f.read()
