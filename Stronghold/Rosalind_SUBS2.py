@@ -3,8 +3,8 @@
 f = open('input')
 lines = f.read().split('\n')
 
-string = lines[0]
-subs = lines[1]
+string = lines[1] # Note that this is substring first, string second
+subs = lines[0]
 
 zstring = subs + ' ' + string
 
@@ -17,6 +17,7 @@ k = 1
 
 while k < len(zstring):
     if k > r: # Outside previous longest substring
+#        print(1, l, r),
         counter = 0 # For naive comparison to beginning of string
         zk = 0
         ktemp = k
@@ -26,15 +27,17 @@ while k < len(zstring):
             zk += 1
         zvalues.append(zk)
         if zk > 0:
-            r = k + zk - 1
+            r = k + zk
             l = k
     else: # Inside current longest substring
         zkprime = zvalues[k-l] # Equivalent value in prefix
         beta = r-k
         if zkprime < beta: # Does not progress outside current longest substring
+#            print(2, l, r),
             zvalues.append(zvalues[zkprime])
             # r and l remain unchanged
         else: # New longest substring potentially present
+#            print(3, l, r),
             zk = r-k
             rightmatch = r
             leftmatch = beta
@@ -43,11 +46,11 @@ while k < len(zstring):
                 rightmatch += 1
                 leftmatch += 1
             zvalues.append(rightmatch-k)
-            r = rightmatch-1
+            r = rightmatch
             l = k
     k += 1
-
 # Print out locations of substring matches
 for i in range (len(subs)+1, len(zstring)):
     if zvalues[i] == len(subs):
-        print(i-len(subs)),
+        print(i-len(subs)-1),
+

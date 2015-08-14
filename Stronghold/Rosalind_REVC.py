@@ -3,9 +3,8 @@
 # Given: A DNA string s of length at most 1000 bp.
 # Return: The reverse complement sc of s.
 
-import sys
-
-dna = sys.stdin.read()
+f = open('input')
+dna = f.read()
 
 #reverse order of string
 reverse_dna = dna[::-1]
